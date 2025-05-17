@@ -1,3 +1,4 @@
+import CreateEventForm from "layouts/create-event/CreateEventForm";
 /**
 =========================================================
 * Material Dashboard 2 React - v2.2.0
@@ -49,6 +50,15 @@ import SignUp from "layouts/authentication/sign-up";
 import Icon from "@mui/material/Icon";
 
 const routes = [
+  {
+    type: "collapse",
+    name: "Create Event",
+    key: "create-event",
+    icon: <Icon fontSize="small">event</Icon>,
+    route: "/create-event",
+    component: <CreateEventForm />,
+  },
+
   {
     type: "collapse",
     name: "Dashboard",
