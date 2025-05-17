@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for community vibe! */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: #fde68a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #ec4899 0%, #fbbf24 100%);
+  border-radius: 8px;
+}
