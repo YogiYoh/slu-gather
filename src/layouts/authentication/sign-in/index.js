@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 
@@ -16,6 +17,7 @@ import { Link } from "react-router-dom";
 
 function SignIn() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [rememberMe, setRememberMe] = useState(false);
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
@@ -26,10 +28,13 @@ function SignIn() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
+
+      const params = new URLSearchParams(location.search);
+      const redirect = params.get("redirect") || "/dashboard";
+      navigate(redirect);
+
     } catch (err) {
       setError("Invalid email or password.");
       console.error(err.message);

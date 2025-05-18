@@ -1,4 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import { TextField } from "@mui/material";
 
 function LocationSearch({ onPlaceSelect }) {
   const inputRef = useRef(null);
@@ -15,20 +18,25 @@ function LocationSearch({ onPlaceSelect }) {
         name: place.name,
         address: place.formatted_address,
         lat: place.geometry.location.lat(),
-        lng: place.geometry.location.lng()
+        lng: place.geometry.location.lng(),
       };
       onPlaceSelect(location);
     });
-  }, []);
+  }, [onPlaceSelect]);
 
   return (
-    <input
-      ref={inputRef}
-      type="text"
+    <TextField
+      fullWidth
+      variant="outlined"
       placeholder="Search for a location"
-      className="w-full p-2 border rounded"
+      inputRef={inputRef}
+      margin="normal"
     />
   );
 }
+
+LocationSearch.propTypes = {
+  onPlaceSelect: PropTypes.func.isRequired,
+};
 
 export default LocationSearch;
