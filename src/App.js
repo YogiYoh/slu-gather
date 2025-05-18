@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-
+/* eslint-disable prettier/prettier */
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
