@@ -1,5 +1,6 @@
-import BuilderPage from "layouts/BuilderPage";
 /* eslint-disable prettier/prettier */
+import BuilderPage from "layouts/BuilderPage";
+import CreateEventForm from "layouts/create-event/CreateEventForm";
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
@@ -14,6 +15,15 @@ import SignUp from "layouts/authentication/sign-up";
 import Icon from "@mui/material/Icon";
 
 const routes = [
+  {
+    type: "collapse",
+    name: "Create Event",
+    key: "create-event",
+    icon: <Icon fontSize="small">event</Icon>,
+    route: "/create-event",
+    component: <CreateEventForm />,
+  },
+
   {
     type: "collapse",
     name: "Dashboard",
