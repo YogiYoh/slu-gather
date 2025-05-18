@@ -13,7 +13,9 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+/* eslint-disable prettier/prettier */
 import { useState, useEffect } from "react";
+import favicon from "assets/images/favicon.png";
 
 // react-router components
 import { Link } from "react-router-dom";
@@ -111,14 +113,34 @@ function DefaultNavbar({ transparent, light, action }) {
           display="flex"
           alignItems="center"
         >
-          <img
-            src={require("assets/images/favicon.png")}
-            alt="Logo"
-            style={{ width: 36, height: 36, marginRight: 8, objectFit: "contain" }}
-          />
+          <MDTypography
+            variant="h5"
+            fontWeight="bold"
+            style={{ color: light ? "white" : "inherit", textDecoration: "none" }}
+            component={Link}
+            to="/builder"
+          >
+            SluGather
+          </MDTypography>
         </MDBox>
-        <MDBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
-          <DefaultNavbarLink icon="home" name="Home" route="/builder" light={light} />
+        <MDBox color="inherit" display={{ xs: "none", lg: "flex" }} alignItems="center" gap={1}>
+          <MDButton
+            variant="outlined"
+            color="info"
+            component={Link}
+            to="/authentication/sign-in"
+            sx={{ ml: 1, minWidth: 80 }}
+          >
+            Sign In
+          </MDButton>
+          <MDButton
+            variant="gradient"
+            color="info"
+            component={Link}
+            to="/authentication/sign-up"
+          >
+            Sign Up
+          </MDButton>
         </MDBox>
         {/* Removed Free Download Button */}
         <MDBox

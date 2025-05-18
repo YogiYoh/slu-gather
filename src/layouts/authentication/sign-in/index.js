@@ -12,7 +12,7 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 import BasicLayout from "layouts/authentication/components/BasicLayout";
-import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import bgImage from "assets/images/ucsc2.jpg";
 import { Link } from "react-router-dom";
 
 function SignIn() {
@@ -32,7 +32,7 @@ function SignIn() {
       await signInWithEmailAndPassword(auth, email, password);
 
       const params = new URLSearchParams(location.search);
-      const redirect = params.get("redirect") || "/dashboard";
+      const redirect = params.get("redirect") || "/builder";
       navigate(redirect);
 
     } catch (err) {

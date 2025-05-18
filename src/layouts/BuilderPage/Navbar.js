@@ -11,9 +11,15 @@ import { auth } from "../../firebase";
 
 import { signOut } from "firebase/auth";
 
-function BuilderNavbar() {
+import PropTypes from "prop-types";
+function BuilderNavbar({ search, setSearch }) {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
+
+BuilderNavbar.propTypes = {
+  search: PropTypes.string,
+  setSearch: PropTypes.func
+};
 
   useEffect(() => {
     // Subscribe to auth state changes
@@ -44,12 +50,16 @@ function BuilderNavbar() {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        bgcolor="white"
         borderRadius="xl"
         px={3}
         py={2}
         boxShadow="sm"
         mb={4}
+        sx={{
+          background: "rgba(255,255,255,0.97)",
+          backdropFilter: "blur(12px)",
+          borderRadius: "24px"
+        }}
       >
         {/* Left: Logo */}
         <MDBox display="flex" alignItems="center">
@@ -70,10 +80,12 @@ function BuilderNavbar() {
         <MDBox flex={1} mx={3} maxWidth="400px">
           <MDInput
             type="search"
-            placeholder="Search…"
+            placeholder="Search events by title…"
             fullWidth
             size="small"
             sx={{ minWidth: 200 }}
+            value={typeof search !== "undefined" ? search : ""}
+            onChange={e => setSearch && setSearch(e.target.value)}
           />
         </MDBox>
 

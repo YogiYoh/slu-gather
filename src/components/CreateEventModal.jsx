@@ -33,10 +33,20 @@ const CreateEventModal = ({ open, onClose, onCreate }) => {
       return;
     }
 
-    const newEvent = { title, description, date, time, location };
+    const newEvent = {
+      title,
+      description,
+      date,
+      time,
+      location,
+      // Use a random banner index for meetup card banner (0, 1, or 2)
+      bannerImageIdx: Math.floor(Math.random() * 3),
+    };
 
     try {
-      await addDoc(collection(firestore, "meetups"), newEvent);
+      const docRef = await addDoc(collection(firestore, "meetups"), newEvent);
+      const createdEvent = { id: docRef.id, ...newEvent };
+      if (onCreate) onCreate(createdEvent);
       if (onCreate) onCreate(newEvent);
       onClose();
       setTitle("");

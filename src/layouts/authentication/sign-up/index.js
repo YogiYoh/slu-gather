@@ -25,7 +25,7 @@ function SignUp() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
+      navigate("/builder");
     } catch (err) {
       setError(err.message);
     }
