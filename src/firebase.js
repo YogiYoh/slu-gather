@@ -8,7 +8,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDcD09NuTs_Bzj9NQjsCl7lLqdCbrQU_CY",
+  apiKey: "",
   authDomain: "slugather.firebaseapp.com",
   projectId: "slugather",
   storageBucket: "slugather.appspot.com", // corrected from 'firebasestorage.app' to 'appspot.com'
